@@ -90,7 +90,7 @@ class Modify extends Component
                                     this.state.showColumnCheck &&
                                     <div className='chkbox-div'>
                                         {
-                                            columns.map((item) => <WCheckbox value={item} name={item} onChangeHandler = {this.chkboxHandler}/>)
+                                            columns.map((item, index) => <WCheckbox key={item+index} value={item} name={item} onChangeHandler = {this.chkboxHandler}/>)
                                         }
                                     </div>
                                 }

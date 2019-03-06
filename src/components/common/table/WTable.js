@@ -19,8 +19,6 @@ export default class TableComponent extends Component {
         const {checkColumns} = this.props;
         if (entry != undefined)
             for (let name in entry) {
-                console.log(entry[name] , typeof entry[name]);
-
                 if (typeof entry[name] == 'object') {
                     let count = 0;
                     const checkedHeaders = [];
@@ -36,7 +34,8 @@ export default class TableComponent extends Component {
                         }
                         subcolumns.push(<th colSpan={1} style={subStyle}>{i}</th>)
                     }
-                    if(checkedHeaders.length === entry[name].length)
+                    const mainColLength = Object.keys(entry[name]).length;
+                    if(checkedHeaders.length === mainColLength)
                     {
                         mainStyle = hideStyle;
                     }
@@ -64,10 +63,9 @@ export default class TableComponent extends Component {
                 if (typeof item[name] == 'object') {
                     let value = "";
 
-
                     for (let i in item[name]) {
                         const style = (checkColumns && checkColumns[i] === true) ? hideStyle : showStyle;
-                        rowEntries.push(<td style={style}>{item[name][i]}</td>)
+                        rowEntries.push(<td key={index + i} style={style}>{item[name][i]}</td>)
                     }
                 }
 
