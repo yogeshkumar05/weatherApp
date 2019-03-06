@@ -1,21 +1,10 @@
 import React, { Component } from 'react';
-import { DropdownButton, MenuItem, Table, Modal, OverlayTrigger, Button, ButtonToolbar } from 'react-bootstrap';
-// import { fetchStreamingData } from "../actions/tableActions";
-// import { connect } from "react-redux"
+import { Table} from 'react-bootstrap';
 
 export default class TableComponent extends Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //     tableData: []
-        // }
     }
-
-    // componentWillReceiveProps(nextProps) {
-    //     if (nextProps.data != undefined) {
-    //         this.setState({ tableData: nextProps.data })
-    //     }
-    // }
 
     render() {
         let tableHead = [];
@@ -23,11 +12,10 @@ export default class TableComponent extends Component {
         let tableBody = [];
         let entry = this.props.tableData[0];
         let columns = [];
-        let sortColumns = [];
         let subcolumns = [];
+
         const hideStyle = { 'display': 'none'};
         const showStyle = { 'display': 'table-cell'};
-        console.log(this.props.tableData);
         const {checkColumns} = this.props;
         if (entry != undefined)
             for (let name in entry) {
@@ -46,8 +34,6 @@ export default class TableComponent extends Component {
                             count--;
                             checkedHeaders.push(i);
                         }
-                        // const style = (checkColumns && checkColumns[i] === true) ? hideStyle : showStyle;
-
                         subcolumns.push(<th colSpan={1} style={subStyle}>{i}</th>)
                     }
                     if(checkedHeaders.length === entry[name].length)
@@ -71,7 +57,7 @@ export default class TableComponent extends Component {
 
         subHead.push(<tr>{subcolumns}</tr>)
 
-        sortColumns = columns.map((item, index) => <option key={index} name={item}>{item}</option>)
+        const sortColumns = columns.map((item, index) => <option key={index} name={item}>{item}</option>)
         this.props.tableData.map((item, index) => {
             let rowEntries = [];
             for (let name in item) {
@@ -100,7 +86,6 @@ export default class TableComponent extends Component {
             }
             tableBody.push(<tr key={index}>{rowEntries}</tr>)
         })
-
 
         return (<div className="table-container">
             <Table striped bordered hover responsive>

@@ -4,7 +4,6 @@ import {fetchWeatherAction} from '../actions/weatherActions';
 import WButton from '../components/common/WButton';
 import WTextbox from '../components/common/WTextbox';
 import WTable from '../components/common/table/WTable';
-import WDropdown from '../components/common/WDropdown';
 import WCheckbox from '../components/common/WCheckbox';
 
 class Modify extends Component
@@ -27,8 +26,6 @@ class Modify extends Component
     dropdownHandler = (e) => this.setState({columns: e.target.name});
 
     chkboxHandler = (e) => {
-        console.log(e.target.value);
-        console.log(e.target.checked);
         this.setState({[e.target.value]: e.target.checked});
     }
 
@@ -39,8 +36,6 @@ class Modify extends Component
 
     render()
     {
-        console.log('state', this.state);
-        console.log(this.props.weather);
         
         if(this.props.weather) {
             var {list, city} = this.props.weather;
@@ -53,7 +48,6 @@ class Modify extends Component
         const columns = [];
         if (list) {
             const entry = list[0];
-            console.log(entry);
             for (let i in entry) {
                 if (typeof entry[i] == 'object') {
                     for (let j in entry[i]) {
@@ -65,8 +59,6 @@ class Modify extends Component
                 
             }
         }
-        console.log(columns);
-
            
         return(
             <div className='modify-container header-margin'>
