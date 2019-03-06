@@ -34,6 +34,12 @@ class Modify extends Component
         this.setState({showColumnCheck: !showColumnCheck});
     }
 
+    handleEnteronSearch = (e) => {
+        if(e.key === 'Enter') {
+            this.searchHandler();
+        }
+    }
+
     render()
     {
         
@@ -63,7 +69,7 @@ class Modify extends Component
         return(
             <div className='modify-container header-margin'>
                 <div className='zipcode-container'>
-                    <WTextbox description = 'Allowed Zip codes: 35801, 35802, 35803' type='number' title='Zip Code:' value={this.state.zipcode} changeHandler={this.textChangeHandler}/>
+                    <WTextbox keyPressHandler = {this.handleEnteronSearch} description = 'Allowed Zip codes: 35801, 35802, 35803' type='number' title='Zip Code:' value={this.state.zipcode} changeHandler={this.textChangeHandler}/>
                     <WButton title= 'SEARCH' clickHandler={this.searchHandler}/>
                 </div>
                     {
@@ -99,7 +105,7 @@ class Modify extends Component
                         : null
                     }
                     {
-                        !this.props.weather && <div> Weather Data for this city are not found </div>
+                        !this.props.weather && <div className='nodata-info'> Weather Data for this city are not found </div>
                     }
                 <WTable tableData={list || []} checkColumns={this.state}/>
             </div>

@@ -33,6 +33,12 @@
 .city-label {
     font-style: italic;
 }
+.nodata-info {
+    text-align: center;
+    margin: 50px;
+    color: #ff0000;
+    font-size: 20px;
+}
 
 @media screen and (min-width: 768px) {
     .zipcode-container {
