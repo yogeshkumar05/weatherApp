@@ -1,0 +1,47 @@
+@import './variables.scss';
+@import './common.scss';
+
+.modify-container {
+    .zipcode-container {
+        @extend .flex-column-center;
+        .city-details-container {
+            margin-top: 10px;
+            border: 1px solid;
+            padding: 10px;
+        }
+    }
+}
+.loc-chkbox-container {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: 10px auto;
+}
+.chkbox-container {
+    margin-top: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    cursor: pointer;
+    background: $theme-color;
+    color: $theme-font;
+    padding: 5px;
+}
+.city-details-header {
+    font-size: 18px;
+    font-weight: bold;
+}
+.city-label {
+    font-style: italic;
+}
+
+@media screen and (min-width: 768px) {
+    .zipcode-container {
+        flex-direction: row !important;
+    }
+    .loc-chkbox-container {
+        flex-direction: row;
+        align-items: baseline;
+        width: 600px;
+        justify-content: space-between;
+    }
+}

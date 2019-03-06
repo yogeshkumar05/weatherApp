@@ -1,0 +1,51 @@
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+table, th, td, tr{
+    border: 1px solid #888;
+    border-collapse: collapse;
+}
+td, th {
+    min-width: 100px;;
+}
+th{
+    text-align: right;
+    padding: 8px;
+    background: #dbbe8a;
+    width:20px;
+
+}
+td{
+    text-align: left;
+    padding: 8px;
+    width: 20px;
+
+}
+Table{
+    thead{
+        tr{
+            th{
+                text-align: center;
+            }
+            th.no-border-tcell
+            {
+                text-align: center;
+                padding-bottom: 46px;
+            }
+            th::first-letter
+            {
+                text-transform: capitalize;
+            } 
+        }
+    }
+}
+
+.table-container
+{
+    max-width: 100vw;
+    overflow: scroll;
+    margin: 20px;
+}

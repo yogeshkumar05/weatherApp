@@ -1,0 +1,26 @@
+@import './common.scss';
+
+.txtbox-container {
+    @extend .flex-column-center;
+
+    .input-container {
+
+        .txtbox {
+            border: 1px solid;
+            margin-top: 5px;
+            height: 29px;
+            width: 255px;
+        }
+    }
+
+
+}
+@media screen and (min-width: 768px) {
+    .txtbox-container {
+        flex-direction: row;
+
+        .txtbox {
+            margin-left: 5px;
+        }
+    }
+}

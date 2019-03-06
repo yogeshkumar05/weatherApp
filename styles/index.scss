@@ -1,0 +1,17 @@
+@import './Header.scss';
+@import './common.scss';
+@import './WeatherApp.scss';
+@import './WButton.scss';
+@import './WTextbox.scss';
+@import './WTable.scss';
+
+body {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
